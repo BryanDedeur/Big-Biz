@@ -3,7 +3,7 @@
 ## CS381 Final Project
 
 #### Game Description
-  * description here
+In Big Biz, players take on the role of a business owner. Hire employees, create workstations, and manage who works where in order to rake in the cash! With business expansion and employee management systems, this game has all the qualities you would expect in a management sim.
 
 #### Concept Drawings
 
