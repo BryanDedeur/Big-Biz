@@ -7,7 +7,8 @@
 
 #### Concept Drawings
 
-  
+![](img/game-concept.jpg)
+
 #### Game Components
 1. 2D Physics, and wall collisions (not sure yet about workstation and employee collisions)
 2. Unit AI with potential fields, and possibly group AI
@@ -25,8 +26,8 @@
 4. No networking, single player
 5. Sounds (background + game sounds)
   * background music: Vaporwave https://www.youtube.com/watch?v=aQkPcPqTq4M, elevator music https://www.youtube.com/watch?v=VBlFHuCzPgY
-  * working sounds: 
-  
+  * working sounds:
+
 ## How to install
 
 ## How to play
@@ -39,4 +40,3 @@
       * Roles: programmer, ai, physics, art, gameplay (controls)   
    * Wei Tong
       * Roles: programmer, ai, physics, sound, UX (levels)
-
