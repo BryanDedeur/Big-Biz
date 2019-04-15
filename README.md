@@ -27,6 +27,9 @@ In Big Biz, players take on the role of a business owner. Hire employees, create
 5. Sounds (background + game sounds)
   * background music: Vaporwave https://www.youtube.com/watch?v=aQkPcPqTq4M, elevator music https://www.youtube.com/watch?v=VBlFHuCzPgY
   * working sounds:
+6. Branding guidelines(not required) 
+   * color palette: https://coolors.co/f62dae-3d348b-256eff-7bdff2-fdfffc
+   * font: 
 
 ## How to install
 
