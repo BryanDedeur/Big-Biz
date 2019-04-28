@@ -6,12 +6,10 @@ public class SceneAndURLLoader : MonoBehaviour
 {
     private PauseMenu m_PauseMenu;
 
-
     private void Awake ()
     {
         m_PauseMenu = GetComponentInChildren <PauseMenu> ();
     }
-
 
     public void SceneLoad(string sceneName)
 	{
@@ -20,10 +18,14 @@ public class SceneAndURLLoader : MonoBehaviour
 		SceneManager.LoadScene(sceneName);
 	}
 
-
 	public void LoadURL(string url)
 	{
 		Application.OpenURL(url);
+	}
+
+	public void quitCommand()
+	{
+		Application.Quit();
 	}
 }
 
