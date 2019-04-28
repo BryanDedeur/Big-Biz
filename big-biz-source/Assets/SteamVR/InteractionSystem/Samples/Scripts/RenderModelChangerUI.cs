@@ -10,7 +10,7 @@ namespace Valve.VR.InteractionSystem.Sample
         public GameObject leftPrefab;
         public GameObject rightPrefab;
 
-        protected SkeletonUIOptions ui;
+		protected SkeletonUIOptions ui;
 
         protected override void Awake()
         {
@@ -25,7 +25,13 @@ namespace Valve.VR.InteractionSystem.Sample
 
             if (ui != null)
             {
-                ui.SetRenderModel(this);
+				// Code to check various stats (money maybe?)
+
+				// Code to spawn employee
+				GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+				// Old code, can get rid of probably
+				ui.SetRenderModel(this);
             }
         }
     }
