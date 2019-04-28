@@ -8,7 +8,8 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.UIElements.GraphView;
+// This was causing problems in building
+// using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 
 // Abstract aspects class for prefabs
