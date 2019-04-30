@@ -89,11 +89,19 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean PointToDirect
+        public virtual SteamVR_Action_Boolean CallAI
         {
             get
             {
-                return SteamVR_Actions.default_PointToDirect;
+                return SteamVR_Actions.default_CallAI;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean SendAI
+        {
+            get
+            {
+                return SteamVR_Actions.default_SendAI;
             }
         }
         

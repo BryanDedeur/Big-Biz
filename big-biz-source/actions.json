@@ -41,7 +41,11 @@
       "requirement": "optional"
     },
     {
-      "name": "/actions/default/in/PointToDirect",
+      "name": "/actions/default/in/CallAI",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/SendAI",
       "type": "boolean"
     },
     {
@@ -76,12 +80,17 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/Manager/in/FireRay",
+      "type": "boolean",
+      "requirement": "mandatory"
     }
   ],
   "action_sets": [
     {
       "name": "/actions/default",
-      "usage": "single"
+      "usage": "leftright"
     },
     {
       "name": "/actions/platformer",
@@ -94,6 +103,10 @@
     {
       "name": "/actions/mixedreality",
       "usage": "single"
+    },
+    {
+      "name": "/actions/Manager",
+      "usage": "leftright"
     }
   ],
   "default_bindings": [
@@ -146,7 +159,9 @@
       "/actions/default/in/SkeletonRightHand": "Skeleton (Right)",
       "/actions/default/in/Teleport": "Teleport",
       "/actions/default/out/Haptic": "Haptic",
-      "/actions/platformer/in/Jump": "Jump"
+      "/actions/platformer/in/Jump": "Jump",
+      "/actions/default/in/CallAI": "Call AI",
+      "/actions/default/in/SendAI": "Send AI"
     }
   ]
 }
