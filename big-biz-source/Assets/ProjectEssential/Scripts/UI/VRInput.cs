@@ -32,6 +32,9 @@ public class VRInput : MonoBehaviour
 
     public SteamVR_Action_Boolean callaiAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Call AI");
     public SteamVR_Action_Boolean sendaiAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Send AI");
+    //public SteamVR_Action_Boolean getAIAttention = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Shout");
+
+    public AudioSource audio;
 
     public SteamVR_Input_Sources handType;
 
@@ -110,6 +113,11 @@ public class VRInput : MonoBehaviour
             }
 
         }
+
+        //if (getAIAttention.GetStateUp(handType) && targetPositioner)
+        //{
+        //    audio.Play();
+        //}
 
     }
 
