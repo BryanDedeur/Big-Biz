@@ -3,36 +3,47 @@
 using UnityEngine;
 using System.Collections;
 using Valve.VR.InteractionSystem;
-using UnityEngine.SceneManagement;
 
 namespace Valve.VR.InteractionSystem.Sample
 {
 
     public class UIVRInteractions : MonoBehaviour
     {
-        public GameObject GameManager;
-        private EmployeeManager EmployeeMgr;
-        private WorkstationManager WorkstationMgr;
+        public GameObject Employee;
+        public GameObject EmployeeSpawnLocation;
+        public GameObject FurnitureSpawnLocation;
+        public GameObject VRThrowable;
 
-        void Start()
-        {
-            EmployeeMgr = GameManager.GetComponent(typeof(EmployeeManager)) as EmployeeManager;
-            WorkstationMgr = GameManager.GetComponent(typeof(WorkstationManager)) as WorkstationManager;
-        }
+        private int randomFurniture;
+        private GameObject ThrowableClone;
+        private GameObject FurnitureClone;
 
         public void HireEmployee()
         {
-            EmployeeMgr.SpawnRandomStatEmployee();
+            Instantiate(Employee).transform.position = EmployeeSpawnLocation.transform.position;
         }
 
         public void SpawnRandomWorkstation()
         {
-            WorkstationMgr.SpawnRandomWorkstation();
-        }
+            randomFurniture = Random.Range(1, 94);
 
-        public void LoadNextLevel(string sceneName)
-        {
-            SceneManager.LoadScene(sceneName);
+            ThrowableClone = Instantiate(VRThrowable, FurnitureSpawnLocation.transform.position + new Vector3(0, 1, 0), transform.rotation) as GameObject;
+            FurnitureClone = Resources.Load("Furniture/Furniture (" + randomFurniture + ")") as GameObject;
+
+            FurnitureClone = Instantiate(FurnitureClone, ThrowableClone.transform.position, ThrowableClone.transform.rotation) as GameObject;
+            FurnitureClone.transform.parent = ThrowableClone.transform;
+            MeshCollider mc = FurnitureClone.GetComponent(typeof(MeshCollider)) as MeshCollider;
+            mc.convex = true;
+            if (mc.convex)
+            {
+                //FurnitureClone.AddComponent(typeof(SteamVR_Skeleton_Poser));
+                //FurnitureClone.AddComponent(typeof(Throwable));
+                //FurnitureClone.AddComponent(typeof(Interactable));
+                //FurnitureClone.AddComponent(typeof(Rigidbody));
+            }
+            //InteractableHoverEvents IHE = ThrowableClone.GetComponent(typeof(InteractableHoverEvents)) as InteractableHoverEvents;
+            
+
         }
     }
 }
