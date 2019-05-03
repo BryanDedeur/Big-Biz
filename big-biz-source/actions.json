@@ -49,6 +49,14 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/MovePlayer",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/default/in/TurnPlayer",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -161,7 +169,9 @@
       "/actions/default/out/Haptic": "Haptic",
       "/actions/platformer/in/Jump": "Jump",
       "/actions/default/in/CallAI": "Call AI",
-      "/actions/default/in/SendAI": "Send AI"
+      "/actions/default/in/SendAI": "Send AI",
+      "/actions/default/in/MovePlayer": "Move Player",
+      "/actions/default/in/TurnPlayer": "Turn Player"
     }
   ]
 }

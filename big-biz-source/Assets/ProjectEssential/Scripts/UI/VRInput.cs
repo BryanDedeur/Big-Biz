@@ -11,11 +11,14 @@ public class VRInput : MonoBehaviour
     public GameObject test;
     public GameObject visualRay;
 
-    //public SteamVR_ActionSet m_ActionSet;
+    public int Heading;
 
-    public SteamVR_Action_Boolean CallAI;
-    public SteamVR_Action_Boolean SendAI;
+    public SteamVR_ActionSet m_ActionSet;
+
+    //public SteamVR_Action_Boolean CallAI;
+    //public SteamVR_Action_Boolean SendAI;
     //public SteamVR_Action_Vector2 m_TouchPosition;
+    //public ISteamVR_Action_Vector2 MovePlayer;
 
     protected GameObject hitObject;
     protected RaycastHit rayHit;
@@ -33,30 +36,60 @@ public class VRInput : MonoBehaviour
     public SteamVR_Action_Boolean callaiAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Call AI");
     public SteamVR_Action_Boolean sendaiAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Send AI");
     //public SteamVR_Action_Boolean getAIAttention = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Shout");
+    public SteamVR_Action_Vector2 MovePlayerAction;
+    public SteamVR_Action_Vector2 TurnPlayerAction;
 
     public AudioSource audio;
 
     public SteamVR_Input_Sources handType;
 
+    private bool rotateDebounce = false;
+    private int debounceCounter = 0;
+
     private void Awake()
     {
         //m_BooleanAction = SteamVR_Actions._default.GrabPinch;
+        //MovePlayerAction[SteamVR_Input_Sources.Any].onAxis += AxisTest;
 
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //m_ActionSet.Activate(SteamVR_Input_Sources.Any, 0, true);
+        m_ActionSet.Activate(handType, 0, true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.DrawRay(LeftController.transform.position, LeftController.transform.forward, Color.green);
+        //visualRay.transform.forward = LeftController.transform.forward;
+        //visualRay.transform.position = LeftController.transform.position;
 
-        Debug.DrawRay(LeftController.transform.position, LeftController.transform.forward, Color.green);
-        visualRay.transform.forward = LeftController.transform.forward;
-        visualRay.transform.position = LeftController.transform.position;
+        //Vector2 moveVec = MovePlayerAction.GetAxis(handType);
+        //print(moveVec);
+        //gameObject.transform.Translate(new Vector3(moveVec.x, 0, moveVec.y) * Time.deltaTime);
+        if (!rotateDebounce)
+        {
+            rotateDebounce = true;
+            Vector2 rotateVec = TurnPlayerAction.GetAxis(handType);
+            if (rotateVec.x < 0)
+            {
+                gameObject.transform.Rotate(new Vector3(0, 45 * Mathf.Floor(rotateVec.x), 0));
+            } else
+            {
+                gameObject.transform.Rotate(new Vector3(0, 45 * Mathf.Ceil(rotateVec.x), 0));
+            }
+
+        }
+
+        if (debounceCounter == 20)
+        {
+            debounceCounter = 0;
+            rotateDebounce = false;
+        }
+        debounceCounter += 1;
+
 
         RaycastHit hit;
         if (Physics.Raycast(LeftController.transform.position, LeftController.transform.forward, out hit))
