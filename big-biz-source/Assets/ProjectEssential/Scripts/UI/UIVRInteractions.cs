@@ -28,11 +28,16 @@ namespace Valve.VR.InteractionSystem.Sample
         public void SpawnRandomWorkstation()
         {
             WorkstationMgr.SpawnRandomWorkstation();
-        }
+		}
 
-        public void LoadNextLevel(string sceneName)
-        {
-            SceneManager.LoadScene(sceneName);
-        }
-    }
+		public void LoadNextLevel(string sceneName)
+		{
+			SceneManager.LoadScene(sceneName);
+		}
+
+		public void QuitGame()
+		{
+			Application.Quit();
+		}
+	}
 }

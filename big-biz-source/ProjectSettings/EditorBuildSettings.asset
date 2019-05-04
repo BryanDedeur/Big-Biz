@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/ProjectEssential/Scenes/StartMenu.unity
+    guid: 962b2f232c673bb4ead69bdd5a07b4d7
+  - enabled: 0
+    path: Assets/ProjectEssential/Scenes/Instructions.unity
+    guid: 69b1d6ece0797bb4ba61659298b41f34
+  - enabled: 0
+    path: Assets/ProjectEssential/Scenes/TestScene.unity
+    guid: 0d9118cf674f2b545bfaad934c95b754
+  - enabled: 0
+    path: Assets/ProjectEssential/Scenes/PauseMenu.unity
+    guid: 77565e3e23687e54c9c5d0873e39bb1a
+  - enabled: 0
     path: Assets/ProjectEssential/Scenes/Level 1.unity
     guid: 73a3aeef03ac50d43a52267349ecfc90
   m_configObjects: {}
