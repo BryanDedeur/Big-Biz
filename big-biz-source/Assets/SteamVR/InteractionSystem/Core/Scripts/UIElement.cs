@@ -9,13 +9,21 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System;
 
+
+using UnityEngine.EventSystems;
+
 namespace Valve.VR.InteractionSystem
 {
 	//-------------------------------------------------------------------------
 	[RequireComponent( typeof( Interactable ) )]
 	public class UIElement : MonoBehaviour
 	{
-		public CustomEvents.UnityEventHand onHandClick;
+
+        public UnityEvent onClick;
+        //public UnityString onClickString;
+        private Selectable selectable;
+
+        public CustomEvents.UnityEventHand onHandClick;
 
         protected Hand currentHand;
 
@@ -64,7 +72,38 @@ namespace Valve.VR.InteractionSystem
 		{
 			onHandClick.Invoke( currentHand );
 		}
-	}
+
+        public void OnPointerClicked()
+        {
+            onClick.Invoke();
+            Text text = GetComponentInChildren<Text>();
+            if (text != null)
+            {
+                //onClickString.Invoke(EnumString.RemoveSpaces(text.text));
+            }
+        }
+
+
+        void Update()
+        {
+
+        }
+
+        public void onPointerIn()
+        {
+            if (selectable != null)
+            {
+                selectable.Select();
+            }
+        }
+
+        public void onPointerOut()
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
+    }
+
 
 #if UNITY_EDITOR
 	//-------------------------------------------------------------------------

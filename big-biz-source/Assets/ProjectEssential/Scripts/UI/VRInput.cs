@@ -15,17 +15,13 @@ public class VRInput : MonoBehaviour
 
     public SteamVR_ActionSet m_ActionSet;
 
-    //public SteamVR_Action_Boolean CallAI;
-    //public SteamVR_Action_Boolean SendAI;
-    //public SteamVR_Action_Vector2 m_TouchPosition;
-    //public ISteamVR_Action_Vector2 MovePlayer;
+    public GameObject SelectedEmployee;
 
     protected GameObject hitObject;
     protected RaycastHit rayHit;
 
     public GameObject LeftController;
     public Transform targetSelecter;
-    private GameObject lastObject;
     //private Color lastColor;
 
     public float surfaceOffset = .001f;
@@ -57,6 +53,26 @@ public class VRInput : MonoBehaviour
     void Start()
     {
         m_ActionSet.Activate(handType, 0, true);
+    }
+
+    private void DeselectEmployee()
+    {
+        if (SelectedEmployee)
+        {
+            GameObject body = SelectedEmployee.transform.Find("EthanBody").gameObject;
+            SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
+            mr.material.color = Color.gray;
+            SelectedEmployee = null;
+        }
+    }
+
+    private void SelectEmployee(GameObject curEmp)
+    {
+        DeselectEmployee();
+        GameObject body = curEmp.transform.Find("EthanBody").gameObject;
+        SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
+        mr.material.color = Color.green;
+        SelectedEmployee = curEmp;
     }
 
     // Update is called once per frame
@@ -98,13 +114,10 @@ public class VRInput : MonoBehaviour
             AICharacterControl ai = hit.transform.gameObject.GetComponent<AICharacterControl>();
             if (ai)
             {
+                SelectEmployee(hit.transform.gameObject);
                 // if a previous doesn't exists make a new one
                 if (!ai.target)
                 {
-                    if (ai.target)
-                    {
-                        Destroy(ai.target.gameObject);
-                    }
                     ai.target = Instantiate(targetSelecter).transform;
                     targetPositioner = ai.target.gameObject;
                     targetPositioner.transform.position = hit.transform.position;
@@ -115,9 +128,8 @@ public class VRInput : MonoBehaviour
                 }
             }
 
-            if (callaiAction.GetStateUp(handType) && targetPositioner)
+            if (callaiAction.GetStateUp(handType) && SelectedEmployee)
             {
-                print("Call AI");
                 targetPositioner.transform.position = new Vector3(gameObject.transform.position.x, 0.04f, gameObject.transform.position.z) + gameObject.transform.forward;
                 if (setTargetOn != null)
                 {
@@ -126,23 +138,14 @@ public class VRInput : MonoBehaviour
                 
             }
 
-            if (sendaiAction.GetStateUp(handType) && targetPositioner)
+            if (sendaiAction.GetStateUp(handType) && SelectedEmployee)
             {
-                print("Send Ai");
                 targetPositioner.transform.position = new Vector3(hit.point.x,0.04f, hit.point.z) + new Vector3(hit.normal.x, 0, hit.normal.z) * surfaceOffset;
                 if (setTargetOn != null)
                 {
                     setTargetOn.SendMessage("SetTarget", targetPositioner.transform);
                 }
-                targetPositioner = null;
-            }
-
-            lastObject = hit.transform.gameObject;
-            MeshRenderer mr = hit.collider.gameObject.GetComponent<MeshRenderer>();
-            if (mr)
-            {
-                //lastColor = mr.material.color;
-                //mr.material.color = Color.red;
+                
             }
 
         }
