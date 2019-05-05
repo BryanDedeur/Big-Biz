@@ -1,6 +1,4 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using Valve.VR.InteractionSystem;
 using UnityEngine.SceneManagement;
@@ -28,16 +26,6 @@ namespace Valve.VR.InteractionSystem.Sample
         public void SpawnRandomWorkstation()
         {
             WorkstationMgr.SpawnRandomWorkstation();
-		}
-
-		public void LoadNextLevel(string sceneName)
-		{
-			SceneManager.LoadScene(sceneName);
-		}
-
-		public void QuitGame()
-		{
-			Application.Quit();
 		}
 	}
 }

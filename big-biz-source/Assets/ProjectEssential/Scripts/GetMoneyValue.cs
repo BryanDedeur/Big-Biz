@@ -15,6 +15,6 @@ public class GetMoneyValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		displayTo.text = "Savings: $" + this.GetComponent<PlayerMoney>().MoneyAmount;
+		displayTo.text = "Money: $" + PlayerPrefs.GetInt("Money", 0);
     }
 }

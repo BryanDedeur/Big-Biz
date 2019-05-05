@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoney : MonoBehaviour
 {
 	public int MoneyAmount;
-	public PlayerMoney(int initialAmount)
+	void Start()
 	{
-		MoneyAmount = initialAmount;
-	}
+        if (!PlayerPrefs.HasKey("Money"))
+        {
+            PlayerPrefs.SetInt("Money", MoneyAmount);
+        }
+    }
 }

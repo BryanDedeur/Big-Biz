@@ -15,6 +15,6 @@ public class GetIncomeValue : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		displayTo.text = "Income: $" + this.GetComponent<PlayerIncome>().currentPaycheck;
+		displayTo.text = "Income: $" + PlayerPrefs.GetInt("Income", 0);
 	}
 }
