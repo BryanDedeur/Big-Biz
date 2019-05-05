@@ -10,10 +10,8 @@ public class PlayerIncome : MonoBehaviour
         if (!PlayerPrefs.HasKey("Income"))
         {
             PlayerPrefs.SetInt("Income", currentPaycheck);
+            InvokeRepeating("PayDay", paydayInterval, paydayInterval);
         }
-        // This might have to be moved inside the if function
-        // if we make the money manage do not destroy
-		InvokeRepeating("PayDay", paydayInterval, paydayInterval);
 	}
 
     void PayDay()
