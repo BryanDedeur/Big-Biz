@@ -17,7 +17,8 @@ public class Employee : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        HourlyRate = 40;
+        PlayerPrefs.SetInt("Income", PlayerPrefs.GetInt("Income", 0) - (int)HourlyRate);
     }
 
     // Update is called once per frame

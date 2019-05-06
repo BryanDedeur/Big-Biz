@@ -16,6 +16,13 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
+    public void CleanStart()
+    {
+        // This is actually bad since user settings could potentially be stored this way
+        // but this will do for now because we don't have anything other than income and money
+        PlayerPrefs.DeleteAll();
+    }
+
     public void QuitGame()
     {
         Application.Quit();

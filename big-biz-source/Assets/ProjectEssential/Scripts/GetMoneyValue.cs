@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GetMoneyValue : MonoBehaviour
 {
@@ -16,5 +17,13 @@ public class GetMoneyValue : MonoBehaviour
     void Update()
     {
 		displayTo.text = "Money: $" + PlayerPrefs.GetInt("Money", 0);
+        if(PlayerPrefs.GetInt("Money", 0) < -2000)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
+        if (PlayerPrefs.GetInt("Money", 0) > 2000)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
     }
 }
