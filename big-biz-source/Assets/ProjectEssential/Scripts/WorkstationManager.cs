@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorkstationManager : MonoBehaviour
 {
     public string ResourcesPath; // this should start level
-    public int NumberResources = 41;
+    private int NumberResources = 21;
 
     public List<Workstation> WorkstationList;
 
@@ -24,7 +24,23 @@ public class WorkstationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foreach (Workstation workstation in WorkstationList)
+        {
+            if (workstation.Employee != null) {
+                workstation.Highlight.color = new Color(1, 0, 0, .25f); // red
+            }
+            else if (false)
+            {
+                workstation.Highlight.color = new Color(0, 1f, 0, .25f); // green
+
+            }
+            else
+            {
+                workstation.Highlight.color = new Color(1, 1, 1, .25f); // white
+            }
+
+
+        }
     }
 
     public GameObject SpawnRandomWorkstation()
@@ -32,9 +48,12 @@ public class WorkstationManager : MonoBehaviour
         int randomIndex = Random.Range(1, NumberResources + 1);
 
         GameObject throwableClone = Instantiate(VRThrowable, SpawnLocation.transform.position + new Vector3(0, 1, 0), SpawnLocation.transform.rotation) as GameObject;
+        Rigidbody rb = throwableClone.GetComponent(typeof(Rigidbody)) as Rigidbody;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         GameObject randWorkstationClone = Resources.Load(ResourcesPath + "workstation (" + randomIndex + ")") as GameObject;
-
-        randWorkstationClone = Instantiate(randWorkstationClone, throwableClone.transform.position, throwableClone.transform.rotation) as GameObject;
+        GameObject statsUI = Instantiate(WorkstationStatsUI, throwableClone.transform.position + new Vector3(0, 1.5f, 0), new Quaternion()) as GameObject;
+        statsUI.transform.parent = throwableClone.transform;
+        randWorkstationClone = Instantiate(randWorkstationClone, throwableClone.transform.position, randWorkstationClone.transform.rotation) as GameObject;
         randWorkstationClone.transform.localScale = Rescale;
         MeshCollider mc = randWorkstationClone.GetComponent(typeof(MeshCollider)) as MeshCollider;
         if (mc)
@@ -59,6 +78,7 @@ public class WorkstationManager : MonoBehaviour
 
         Workstation workstationComponent = randWorkstationClone.AddComponent(typeof(Workstation)) as Workstation;
         WorkstationList.Add(workstationComponent);
+        workstationComponent.UI = statsUI;
 
         return randWorkstationClone;
     }

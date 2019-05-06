@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 63636840643313622}
   - component: {fileID: 63636840643313623}
   m_Layer: 0
-  m_Name: toolbox_red_b (2)
+  m_Name: workstation (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63636840643313621}
-  m_LocalRotation: {x: -0.6803542, y: 0.19266109, z: 0.19266099, w: 0.68035406}
-  m_LocalPosition: {x: 11.53, y: 1.2, z: -3.946}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 31.621899, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &63636840643313622
 MeshFilter:
   m_ObjectHideFlags: 0

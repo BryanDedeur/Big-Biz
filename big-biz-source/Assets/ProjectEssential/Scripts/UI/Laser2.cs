@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 using UnityStandardAssets.Characters.ThirdPerson;
+using UnityEngine.EventSystems;
 
 
 
@@ -20,10 +21,7 @@ public class Laser2 : MonoBehaviour
     float thickness = 0.002f;
     Transform previousContact = null;
 
-    private GameObject SelectedEmployee;
-    private GameObject TargetPositioner;
-    public Transform TargetSelecter;
-
+    public Vector3 ContactPoint;
 
     private void Start()
     {
@@ -102,42 +100,42 @@ public class Laser2 : MonoBehaviour
         ball.GetComponent<MeshRenderer>().material.renderQueue = 3000;
     }
 
-    public void OnPointerIn(UIElement e)
+    public void OnPointerIn(Button e)
     {
-        e.onPointerIn();
-        //Debug.Log("OnPointerIn was called.");
+        Debug.Log("OnPointerIn was called.");
+        e.OnPointerEnter(null);
     }
 
-    public void OnPointerClick(UIElement e)
+    public void OnPointerClick(Button e)
     {
-        e.OnPointerClicked();
-        //Debug.Log("OnPointerClick was called.");
+        Debug.Log("OnPointerClick was called.");
+        e.onClick.Invoke();
     }
 
-    public void OnPointerOut(UIElement e)
+    public void OnPointerOut(Button e)
     {
-        e.onPointerOut();
-        //Debug.Log("OnPointerOut was called.");
+        Debug.Log("OnPointerOut was called.");
+        e.OnPointerExit(null);
     }
 
     private void DeselectEmployee()
     {
-        if (SelectedEmployee)
-        {
-            GameObject body = SelectedEmployee.transform.Find("EthanBody").gameObject;
-            SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
-            mr.material.color = Color.gray;
-            SelectedEmployee = null;
-        }
+        //if (SelectedEmployee)
+        //{
+        //    GameObject body = SelectedEmployee.transform.Find("EthanBody").gameObject;
+        //    SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
+        //    mr.material.color = Color.gray;
+        //    SelectedEmployee = null;
+        //}
     }
 
     private void SelectEmployee(GameObject curEmp)
     {
-        DeselectEmployee();
-        GameObject body = curEmp.transform.Find("EthanBody").gameObject;
-        SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
-        mr.material.color = Color.green;
-        SelectedEmployee = curEmp;
+        //DeselectEmployee();
+        //GameObject body = curEmp.transform.Find("EthanBody").gameObject;
+        //SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
+        //mr.material.color = Color.green;
+        //SelectedEmployee = curEmp;
     }
 
     private void Update()
@@ -150,27 +148,27 @@ public class Laser2 : MonoBehaviour
 
         //Debug.Log("Ray: " + raycast + ", HitOccured: " + hitOccurred + (hitOccurred ? ", Distance:" + hit.distance + ", Location:" + hit.transform.position : ""));
 
-        AICharacterControl ai = hit.transform.gameObject.GetComponent<AICharacterControl>();
-        if (ai)
-        {
-            SelectEmployee(hit.transform.gameObject);
-            // if a previous doesn't exists make a new one
-            if (!ai.target)
-            {
-                ai.target = Instantiate(TargetSelecter).transform;
-                TargetPositioner = ai.target.gameObject;
-                TargetPositioner.transform.position = hit.transform.position;
-            }
-            else // do nothing
-            {
-                TargetPositioner = ai.target.gameObject;
-            }
-        }
+        //AICharacterControl ai = hit.transform.gameObject.GetComponent<AICharacterControl>();
+        //if (ai)
+        //{
+        //    SelectEmployee(hit.transform.gameObject);
+        //    // if a previous doesn't exists make a new one
+        //    if (!ai.target)
+        //    {
+        //        ai.target = Instantiate(TargetSelecter).transform;
+        //        TargetPositioner = ai.target.gameObject;
+        //        TargetPositioner.transform.position = hit.transform.position;
+        //    }
+        //    else // do nothing
+        //    {
+        //        TargetPositioner = ai.target.gameObject;
+        //    }
+        //}
 
         //Left the previously hit object
         if (previousContact && previousContact != hit.transform)
         {
-            UIElement e = previousContact.GetComponent<UIElement>();
+            Button e = previousContact.GetComponent<Button>();
             if (e != null)
             {
                 OnPointerOut(e);
@@ -181,7 +179,7 @@ public class Laser2 : MonoBehaviour
         //Entered a new object
         if (hitOccurred && previousContact != hit.transform)
         {
-            UIElement e = hit.transform.GetComponent<UIElement>();
+            Button e = hit.transform.GetComponent<Button>();
             if (e != null)
             {
                 OnPointerIn(e);
@@ -204,7 +202,7 @@ public class Laser2 : MonoBehaviour
         //Hit something and the pointer button was clicked
         if (hitOccurred && actionClick.GetStateDown(hand.handType))
         {
-            UIElement e = hit.transform.GetComponent<UIElement>();
+            Button e = hit.transform.GetComponent<Button>();
             if (e != null)
             {
                 OnPointerClick(e);
@@ -234,6 +232,8 @@ public class Laser2 : MonoBehaviour
         pointer.transform.localScale = new Vector3(thickness, dist / 2, thickness);
         pointer.transform.localPosition = new Vector3(0f, 0f, dist / 2);
         ball.transform.localPosition = new Vector3(0f, 0f, dist);
+
+        ContactPoint = ball.transform.position;
     }
 }
 

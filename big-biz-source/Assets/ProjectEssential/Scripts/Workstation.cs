@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Workstation : MonoBehaviour
 {
@@ -15,15 +16,18 @@ public class Workstation : MonoBehaviour
     public float SocialWeight;
     public float StrengthWeight;
 
+    //public bool workable = true;
+
+    private float TimeUntilActive;
+    private float WorkableTime;
+
+    public GameObject UI; // will be set by workstation manager
+    public Image Highlight;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Transform highlighter = UI.transform.Find("Highlighter");
+        Highlight = highlighter.GetComponent(typeof(Image)) as Image;
     }
 }

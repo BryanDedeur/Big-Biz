@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 namespace Valve.VR.InteractionSystem.Sample
 {
 
-    public class UIVRInteractions : MonoBehaviour
+    public class ManagerDeskUI : MonoBehaviour
     {
-        public GameObject GameManager;
+        private GameObject GameManager;
         private EmployeeManager EmployeeMgr;
         private WorkstationManager WorkstationMgr;
 
         void Start()
         {
+            GameManager = GameObject.Find("GameManager");
             EmployeeMgr = GameManager.GetComponent(typeof(EmployeeManager)) as EmployeeManager;
             WorkstationMgr = GameManager.GetComponent(typeof(WorkstationManager)) as WorkstationManager;
         }
