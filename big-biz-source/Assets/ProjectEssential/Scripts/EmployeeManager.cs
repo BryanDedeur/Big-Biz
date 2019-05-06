@@ -112,6 +112,31 @@ public class EmployeeManager : MonoBehaviour
         SelectedEmployeeList.Clear();
     }
 
+    public void SendSelectedEmployeesToTarget()
+    {
+        GameObject RH = GameObject.Find("RightHand");
+        if (RH)
+        {
+            Laser2 laser = RH.GetComponent(typeof(Laser2)) as Laser2;
+            if (laser)
+            {
+                foreach (GameObject SelectedEmployee in SelectedEmployeeList)
+                {
+                    AICharacterControl ai = SelectedEmployee.GetComponent<AICharacterControl>();
+                    if (ai.target)
+                    {
+                        Destroy(ai.target.gameObject);
+                    }
+                    ai.target = Instantiate(TargetPoint).transform;
+                    ai.target.position = new Vector3(laser.ContactPoint.x, .05f, laser.ContactPoint.z);
+
+                }
+                DeselectAllEmployees();
+            }
+        }
+
+    }
+
     public void SendSelectedEmployeesToTarget(Vector3 location)
     {
         foreach (GameObject SelectedEmployee in SelectedEmployeeList)

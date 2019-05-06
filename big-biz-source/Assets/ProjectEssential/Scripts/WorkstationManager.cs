@@ -26,20 +26,22 @@ public class WorkstationManager : MonoBehaviour
     {
         foreach (Workstation workstation in WorkstationList)
         {
-            if (workstation.Employee != null) {
-                workstation.Highlight.color = new Color(1, 0, 0, .25f); // red
-            }
-            else if (false)
+            if (workstation.Highlight)
             {
-                workstation.Highlight.color = new Color(0, 1f, 0, .25f); // green
+                if (workstation.Employee != null)
+                {
+                    workstation.Highlight.color = new Color(1, 0, 0, .25f); // red
+                }
+                else if (false)
+                {
+                    workstation.Highlight.color = new Color(0, 1f, 0, .25f); // green
 
+                }
+                else
+                {
+                    workstation.Highlight.color = new Color(1, 1, 1, .25f); // white
+                }
             }
-            else
-            {
-                workstation.Highlight.color = new Color(1, 1, 1, .25f); // white
-            }
-
-
         }
     }
 
