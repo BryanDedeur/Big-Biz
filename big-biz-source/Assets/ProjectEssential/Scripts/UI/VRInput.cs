@@ -31,7 +31,16 @@ public class VRInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        laserScript = GameObject.Find("RightHand").GetComponent(typeof(Laser2)) as Laser2;
+        try
+        {
+            laserScript = GameObject.Find("RightHand").GetComponent(typeof(Laser2)) as Laser2;
+        } 
+        catch
+        {
+
+        }
+  
+
         GameObject gameManager = GameObject.Find("GameManager");
         if (gameManager)
         {

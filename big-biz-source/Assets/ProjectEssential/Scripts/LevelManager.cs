@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     private Scene ActiveScene;
     private GameObject Player;
+    public GameObject DesktopPlayer;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.Log("Player not found");
+           // Player = Instantiate(Resources.Load("DesktopPlayer")) as GameObject;
         }
 
         MovePlayerToSpawnPos();
