@@ -3,12 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMoney : MonoBehaviour
 {
-	public int MoneyAmount;
 	void Start()
 	{
-        if (!PlayerPrefs.HasKey("Money"))
+        PlayerPrefs.SetInt("Money", 0);
+    }
+
+    private void Update()
+    {
+        if (PlayerPrefs.GetInt("Money", 0) < -2000)
         {
-            PlayerPrefs.SetInt("Money", MoneyAmount);
+            this.GetComponent<LevelManager>().LoadLevel("LoseScene");
+            this.GetComponent<LevelManager>().CleanStart();
+        }
+        if (PlayerPrefs.GetInt("Money", 0) > 2000)
+        {
+            this.GetComponent<LevelManager>().LoadLevel("WinScene");
+            this.GetComponent<LevelManager>().CleanStart();
         }
     }
 }

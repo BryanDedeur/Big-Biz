@@ -17,9 +17,12 @@ public class Workstation : MonoBehaviour
     public float StrengthWeight;
 
     //public bool workable = true;
-
     private float TimeUntilActive;
     private float WorkableTime;
+
+    // Variable for checking if previous iteration updated $$$ from employee
+    public bool HasEmployee;
+    public int previousIncome;
 
     public GameObject UI; // will be set by workstation manager
     public Image Highlight;

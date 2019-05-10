@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.bigbiz.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\bdedeurwaerder\\Documents\\GitHub\\CS381-final-project\\big-biz-source\\actions.json",
+      "action_manifest_path": "X:\\CS381-final-project\\big-biz-source\\actions.json",
       "strings": {
         "en_us": {
           "name": "Big-biz [Testing]"

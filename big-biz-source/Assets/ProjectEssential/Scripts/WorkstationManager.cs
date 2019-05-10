@@ -30,16 +30,22 @@ public class WorkstationManager : MonoBehaviour
             {
                 if (workstation.Employee != null)
                 {
-                    workstation.Highlight.color = new Color(1, 0, 0, .25f); // red
+                    workstation.Highlight.color = new Color(0, 1f, 0, .25f); // Green (Making $$$)
+                    if (workstation.HasEmployee)
+                    {
+                        // 
+                    }
                 }
+                /* ?? Not sure when this is supposed to happen
                 else if (false)
                 {
                     workstation.Highlight.color = new Color(0, 1f, 0, .25f); // green
 
                 }
+                */
                 else
                 {
-                    workstation.Highlight.color = new Color(1, 1, 1, .25f); // white
+                    workstation.Highlight.color = new Color(1, 1, 1, .25f); // White (Not making $$$)
                 }
             }
         }
@@ -81,6 +87,9 @@ public class WorkstationManager : MonoBehaviour
         Workstation workstationComponent = randWorkstationClone.AddComponent(typeof(Workstation)) as Workstation;
         WorkstationList.Add(workstationComponent);
         workstationComponent.UI = statsUI;
+
+        // Cost $$$
+        PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money", 0) - 500);
 
         return randWorkstationClone;
     }
