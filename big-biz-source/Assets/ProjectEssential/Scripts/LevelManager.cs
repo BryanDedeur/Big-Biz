@@ -43,10 +43,16 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void ReturnToPreviousLevel()
+    public void UnlockLevelTwo()
     {
         // Temporary for now
-        SceneManager.LoadScene("StartMenu");
+        if(PlayerPrefs.GetInt("Money", 0) >= 10000)
+        {
+            // Pretend they sold the business to start a new one
+            PlayerPrefs.SetInt("Income", 0);
+            PlayerPrefs.SetInt("Money", 10000);
+            SceneManager.LoadScene("Level 2");
+        }
     }
 
     public void CleanStart()

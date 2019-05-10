@@ -10,15 +10,17 @@ public class PlayerMoney : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("Money", 0) < -2000)
+        if (PlayerPrefs.GetInt("Money", 0) <= PlayerPrefs.GetInt("Bankruptcy", 0))
         {
             this.GetComponent<LevelManager>().LoadLevel("LoseScene");
             this.GetComponent<LevelManager>().CleanStart();
         }
-        if (PlayerPrefs.GetInt("Money", 0) > 2000)
+        /* Removed this to load Level 2 instead of auto-win
+        else if (PlayerPrefs.GetInt("Money", 0) > 2000)
         {
             this.GetComponent<LevelManager>().LoadLevel("WinScene");
             this.GetComponent<LevelManager>().CleanStart();
         }
+        */
     }
 }

@@ -11,5 +11,6 @@ public class OnLoad : MonoBehaviour
         // Need this because it somehow saves stats even after restarting game
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("StartMenu");
+        PlayerPrefs.SetInt("Bankruptcy", -10000);
     }
 }

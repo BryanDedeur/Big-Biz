@@ -22,7 +22,7 @@ public class Workstation : MonoBehaviour
 
     // Variable for checking if previous iteration updated $$$ from employee
     public bool HasEmployee;
-    public int previousIncome;
+    public int PreviousIncome;
 
     public GameObject UI; // will be set by workstation manager
     public Image Highlight;
@@ -32,5 +32,6 @@ public class Workstation : MonoBehaviour
     {
         Transform highlighter = UI.transform.Find("Highlighter");
         Highlight = highlighter.GetComponent(typeof(Image)) as Image;
+        HasEmployee = false;
     }
 }
