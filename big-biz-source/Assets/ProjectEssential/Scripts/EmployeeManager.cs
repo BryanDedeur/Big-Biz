@@ -160,6 +160,7 @@ public class EmployeeManager : MonoBehaviour
 
         Employee employeeComponent = newEmployee.AddComponent(typeof(Employee)) as Employee;
         EmployeeList.Add(employeeComponent);
+        employeeComponent.wage = Random.Range(-30, -10);
 
         // Add random stats here
 

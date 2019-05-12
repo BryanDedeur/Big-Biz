@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 7258726556318262045}
   - component: {fileID: 9120518041966193350}
   - component: {fileID: 5488449250061676777}
+  - component: {fileID: 693489398680648841}
   m_Layer: 0
   m_Name: WorkstationStats
   m_TagString: Untagged
@@ -565,6 +566,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &693489398680648841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7167004920521503576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b9ab4bdc4e7144699cb631055f0d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
 --- !u!1 &7412325213919368980
 GameObject:
   m_ObjectHideFlags: 0

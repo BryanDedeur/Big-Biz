@@ -11,8 +11,11 @@ using UnityEngine.EventSystems;
 public class Laser2 : MonoBehaviour
 {
     public SteamVR_Action_Boolean actionClick;
+    public SteamVR_Action_Boolean actionSend;
     public Color color = Color.green;
     public Color clickColor = new Color(0, 0.4039f, 0);
+
+    public AudioSource audioSource;
 
     Hand hand;
     GameObject holder;
@@ -21,16 +24,23 @@ public class Laser2 : MonoBehaviour
     float thickness = 0.002f;
     Transform previousContact = null;
 
+    Vector3 previousScale;
+
     public Vector3 ContactPoint;
 
     private void Start()
     {
+
         hand = gameObject.GetComponent<Hand>();
         if (actionClick == null)
         {
             Debug.LogError("No actionClick has been set on this component.");
         }
         actionClick.actionSet.Activate(hand.handType);
+
+        audioSource = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
+        audioSource.playOnAwake = true;
+
 
         float dist = 5;
         holder = new GameObject("Holder");
@@ -104,38 +114,24 @@ public class Laser2 : MonoBehaviour
     {
         Debug.Log("OnPointerIn was called.");
         e.OnPointerEnter(null);
+        previousScale = e.gameObject.transform.localScale;
+        //e.gameObject.transform.localScale = e.gameObject.transform.localScale * 1.5f;
     }
 
     public void OnPointerClick(Button e)
     {
         Debug.Log("OnPointerClick was called.");
         e.onClick.Invoke();
+        //audioSource.Play();
+        audioSource.Play();
+        
     }
 
     public void OnPointerOut(Button e)
     {
         Debug.Log("OnPointerOut was called.");
         e.OnPointerExit(null);
-    }
-
-    private void DeselectEmployee()
-    {
-        //if (SelectedEmployee)
-        //{
-        //    GameObject body = SelectedEmployee.transform.Find("EthanBody").gameObject;
-        //    SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
-        //    mr.material.color = Color.gray;
-        //    SelectedEmployee = null;
-        //}
-    }
-
-    private void SelectEmployee(GameObject curEmp)
-    {
-        //DeselectEmployee();
-        //GameObject body = curEmp.transform.Find("EthanBody").gameObject;
-        //SkinnedMeshRenderer mr = body.GetComponent<SkinnedMeshRenderer>();
-        //mr.material.color = Color.green;
-        //SelectedEmployee = curEmp;
+        //e. = previousScale;
     }
 
     private void Update()
@@ -147,23 +143,6 @@ public class Laser2 : MonoBehaviour
         bool hitOccurred = Physics.Raycast(raycast, out hit);
 
         //Debug.Log("Ray: " + raycast + ", HitOccured: " + hitOccurred + (hitOccurred ? ", Distance:" + hit.distance + ", Location:" + hit.transform.position : ""));
-
-        //AICharacterControl ai = hit.transform.gameObject.GetComponent<AICharacterControl>();
-        //if (ai)
-        //{
-        //    SelectEmployee(hit.transform.gameObject);
-        //    // if a previous doesn't exists make a new one
-        //    if (!ai.target)
-        //    {
-        //        ai.target = Instantiate(TargetSelecter).transform;
-        //        TargetPositioner = ai.target.gameObject;
-        //        TargetPositioner.transform.position = hit.transform.position;
-        //    }
-        //    else // do nothing
-        //    {
-        //        TargetPositioner = ai.target.gameObject;
-        //    }
-        //}
 
         //Left the previously hit object
         if (previousContact && previousContact != hit.transform)
@@ -200,14 +179,16 @@ public class Laser2 : MonoBehaviour
         }
 
         //Hit something and the pointer button was clicked
-        if (hitOccurred && actionClick.GetStateDown(hand.handType))
+        if (hitOccurred && (actionClick.GetStateDown(hand.handType) || actionSend.GetStateDown(hand.handType)))
         {
+            
             Button e = hit.transform.GetComponent<Button>();
             if (e != null)
             {
                 OnPointerClick(e);
             }
         }
+
 
         if (actionClick != null && actionClick.GetState(hand.handType))
         {

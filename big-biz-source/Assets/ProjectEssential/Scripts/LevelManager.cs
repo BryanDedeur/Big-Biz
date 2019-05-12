@@ -7,7 +7,6 @@ public class LevelManager : MonoBehaviour
 {
     private Scene ActiveScene;
     private GameObject Player;
-    public GameObject DesktopPlayer;
 
     private void Start()
     {
@@ -28,7 +27,7 @@ public class LevelManager : MonoBehaviour
     public void MovePlayerToSpawnPos()
     {
         GameObject spawnPos = GameObject.Find("PlayerSpawn");
-        if (spawnPos != null)
+        if (spawnPos != null && Player != null)
         {
             Player.transform.position = spawnPos.transform.position;
             Player.transform.rotation = spawnPos.transform.rotation;

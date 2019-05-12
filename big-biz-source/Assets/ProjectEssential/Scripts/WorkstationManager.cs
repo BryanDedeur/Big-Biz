@@ -31,37 +31,21 @@ public class WorkstationManager : MonoBehaviour
                 if (workstation.Employee != null)
                 {
                     workstation.Highlight.color = new Color(0, 1, 0, .25f); // Green (Making $$$)
-                    if (!workstation.HasEmployee)
-                    {
-                        workstation.HasEmployee = true;
+
                         // Calculate how much $$$ the employee makes
-                        workstation.PreviousIncome = CalculateIncome(workstation);
+                        //workstation.PreviousIncome = CalculateIncome(workstation);
                         // Add value to income global stats
-                        PlayerPrefs.SetInt("Income", PlayerPrefs.GetInt("Income", 0) + workstation.PreviousIncome);
-                    }
+                        //PlayerPrefs.SetInt("Income", PlayerPrefs.GetInt("Income", 0) + workstation.PreviousIncome);
                 }
                 else
                 {
                     workstation.Highlight.color = new Color(1, 1, 1, .25f); // White (Not making $$$)
-                    if (workstation.HasEmployee)
-                    {
-                        workstation.HasEmployee = false;
                         // Remove employee's income from global stats
-                        PlayerPrefs.SetInt("Income", PlayerPrefs.GetInt("Income", 0) - workstation.PreviousIncome);
-                    }
+                    //PlayerPrefs.SetInt("Income", PlayerPrefs.GetInt("Income", 0) - workstation.PreviousIncome);
+                   
                 }
             }
         }
-    }
-
-    int CalculateIncome(Workstation ToBeCalculated)
-    {
-        float intelligence = ToBeCalculated.Employee.GetComponent<EmployeeStatsGenerator>().intelligence;
-        float strength = ToBeCalculated.Employee.GetComponent<EmployeeStatsGenerator>().strength;
-        float social = ToBeCalculated.Employee.GetComponent<EmployeeStatsGenerator>().social;
-        float reliability = ToBeCalculated.Employee.GetComponent<EmployeeStatsGenerator>().reliability;
-        float money = (intelligence * 0.4f + strength * 0.4f + social * 0.2f) * (reliability / 100);
-        return Mathf.RoundToInt(money);
     }
 
     public GameObject SpawnRandomWorkstation()
