@@ -10,7 +10,7 @@ Requirements:
 * OS - Windows 10 (or newer)
 * Software - SteamVR (1.4.9 or newer), Oculus Rift compatible software
 
-      1. [Download the game](https://sourceforge.net/projects/big-biz/)
+      1. Download the game [from Source Forge](https://sourceforge.net/projects/big-biz/)
       2. Ensure Oculus is plugged in and SteamVR is running
       3. Launch the executable
 
@@ -36,6 +36,8 @@ Genre: real time strategy (RTS) & management simulation
    - UI elements are interactable as they exist in world space
    - Player teleports to avoid motion sickness
    - Physical objects are interactable through controller input
+   ![controller input](img/controller-input.gif)
+
 4. No networking, single player
 5. Sounds (background + game sounds)
      * All level songs are from the artist Mindthings
@@ -55,9 +57,7 @@ Required VR Software: Oculus and Steam VR
 VR Hardware: Oculus Rift Touch c.3  
 
 ## Contributors
-  * Bryan Dedeurwaerder
-    * Roles: programmer, ai, physics, art, gameplay (controls)   
-  * Wei Tong
-    * Roles: programmer, ai, physics, sound, UX (levels)
+  * Bryan Dedeurwaerder: programmer, ai, physics, art, gameplay (controls)   
+  * Wei Tong: programmer, ai, physics, sound, UX (levels)
 
 - Under the supervision of [Professor Sushil J. Louis](https://www.cse.unr.edu/~sushil/)
