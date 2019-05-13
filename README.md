@@ -2,7 +2,7 @@
 ### A business management simulation game experienced through VR
 #### This project was for a Game Engine Architecture course final project under the supervision of Professor Sushil J. Louis at the University of Nevada Reno.
 
-![landing image](img/landing-image.jpg)
+![landing image](img/landing-image.PNG)
 
 ## Play now
 Requirements:
@@ -10,7 +10,7 @@ Requirements:
 * OS - Windows 10 (or newer)
 * Software - SteamVR (1.4.9 or newer), Oculus Rift compatible software
 
-      1. [Download the executable]()
+      1. [Download the game](https://sourceforge.net/projects/big-biz/)
       2. Ensure Oculus is plugged in and SteamVR is running
       3. Launch the executable
 
