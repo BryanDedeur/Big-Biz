@@ -1,7 +1,6 @@
 # BIG BIZ (Beta 1.1.2)
-## A business management simulation game experienced through VR
-
-This project was for a Game Engine Architecture College Course final project under the supervision of Professor Sushil J. Louis at the University of Nevada Reno.
+### A business management simulation game experienced through VR
+#### This project was for a Game Engine Architecture course final project under the supervision of Professor Sushil J. Louis at the University of Nevada Reno.
 
 ## Play now
 Requirements:
@@ -10,14 +9,14 @@ Requirements:
 * Software - SteamVR (1.4.9 or newer), Oculus Rift compatible software
 
 1. [Download the executable]()
-2. Ensure Oculus is plugged in
+2. Ensure Oculus is plugged in and SteamVR is running
 3. Launch the executable
 
-#### Game Details
-##### Description
+### Game Details
+#### Description
 In Big Biz, players take on the role of a business owner. Hire employees, create workstations, and manage who works where in order to rake in the cash! With business expansion and employee management systems, this game has all the qualities you would expect in a management sim.
 
-##### Information
+#### Information
 Genre: real time strategy (RTS) & management simulation  
 * Gameplay Elements:
      - Player experiences game through VR headset
@@ -28,7 +27,7 @@ Genre: real time strategy (RTS) & management simulation
      - Player can lose money by poor management
      - Player wins when revenue meets the requirements
 
-##### Elements and Components
+#### Elements and Components
 1. 2D Physics NPC movement, 3D Physics for workstations colliders
 2. Unit AI, and group AI move too commands
 3. Gameplay & User interaction
@@ -41,13 +40,13 @@ Genre: real time strategy (RTS) & management simulation
 5. Sounds (background + game sounds)
   * All level songs are from the artist Mindthings
   * We made the laser sounds
-  * Main menu song credit https://soundimage.org/fantasywonder/
+  * Main menu song [credit](https://soundimage.org/fantasywonder/)
 6. Branding guidelines(not required)
   - We ensured to use consistent logos, fonts and color schemes through out the game.
 
-##### Concept Drawings
+#### Concept Drawings
 
-  ![](img/game-concept.jpg)
+  ![concept drawing](img/game-concept.jpg)
 
 ## Development environment
 Game Engine: Unity version 2018.3.13f1
