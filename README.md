@@ -1,17 +1,29 @@
 # BIG BIZ
+### A business management simulation game
 
-## CS381 Final Project
+This project was for a Game Engine Architecture College Course final project.
 
 #### Game Description
 In Big Biz, players take on the role of a business owner. Hire employees, create workstations, and manage who works where in order to rake in the cash! With business expansion and employee management systems, this game has all the qualities you would expect in a management sim.
+
+##### Game Information
+Genre: real time strategy (RTS) & management simulation
+Gameplay Elements:
+  - Player experiences game through VR headset
+  - Player controls stuff with his hands
+Scoring System:
+  - Player can earn money by working employees
+  - Player can lose money by poor management
+  - Player wins when revenue meets the requirements
+
 
 #### Concept Drawings
 
 ![](img/game-concept.jpg)
 
 #### Game Components
-1. 2D Physics, and wall collisions (not sure yet about workstation and employee collisions)
-2. Unit AI with potential fields, and possibly group AI
+1. 2D Physics, and wall and object collision
+2. Unit AI, and group AI move too commands
 3. Gameplay & User interaction (hand drawn), (devices, what does user do? scoring)
       * If VR
          - controller trigger press to select employee
@@ -27,9 +39,9 @@ In Big Biz, players take on the role of a business owner. Hire employees, create
 5. Sounds (background + game sounds)
   * background music: Vaporwave https://www.youtube.com/watch?v=aQkPcPqTq4M, elevator music https://www.youtube.com/watch?v=VBlFHuCzPgY
   * working sounds:
-6. Branding guidelines(not required) 
+6. Branding guidelines(not required)
    * color palette: https://coolors.co/f62dae-3d348b-256eff-7bdff2-fdfffc
-   * font: 
+   * font:
 
 ## How to install
 
