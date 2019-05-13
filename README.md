@@ -2,17 +2,19 @@
 ### A business management simulation game experienced through VR
 #### This project was for a Game Engine Architecture course final project under the supervision of Professor Sushil J. Louis at the University of Nevada Reno.
 
+![landing image](img/landing-image.jpg)
+
 ## Play now
 Requirements:
 * Hardware - Oculus Rift Touch VR Hardware
 * OS - Windows 10 (or newer)
 * Software - SteamVR (1.4.9 or newer), Oculus Rift compatible software
 
-1. [Download the executable]()
-2. Ensure Oculus is plugged in and SteamVR is running
-3. Launch the executable
+      1. [Download the executable]()
+      2. Ensure Oculus is plugged in and SteamVR is running
+      3. Launch the executable
 
-### Game Details
+## Game Details
 #### Description
 In Big Biz, players take on the role of a business owner. Hire employees, create workstations, and manage who works where in order to rake in the cash! With business expansion and employee management systems, this game has all the qualities you would expect in a management sim.
 
@@ -31,27 +33,26 @@ Genre: real time strategy (RTS) & management simulation
 1. 2D Physics NPC movement, 3D Physics for workstations colliders
 2. Unit AI, and group AI move too commands
 3. Gameplay & User interaction
-   - controller trigger press to select employee
-   - controller trigger press to send selected employees to workstation
-   - headset allows player to look around the business in 3D space
-   - controller trigger press allows for grabbing workstations
-   - controller trigger press with laser allows for interaction of UI elements
+   - UI elements are interactable as they exist in world space
+   - Player teleports to avoid motion sickness
+   - Physical objects are interactable through controller input
 4. No networking, single player
 5. Sounds (background + game sounds)
-  * All level songs are from the artist Mindthings
-  * We made the laser sounds
-  * Main menu song [credit](https://soundimage.org/fantasywonder/)
+     * All level songs are from the artist Mindthings
+     * We made the laser sounds
+     * Main menu song [credit](https://soundimage.org/fantasywonder/)
 6. Branding guidelines(not required)
-  - We ensured to use consistent logos, fonts and color schemes through out the game.
+     - We ensured to use consistent logos, fonts and color schemes through out the game.
+7. 3D Models were obtained from the Unity Asset Store
 
-#### Concept Drawings
+#### Concept Drawing
 
   ![concept drawing](img/game-concept.jpg)
 
 ## Development environment
-Game Engine: Unity version 2018.3.13f1
-Required VR Software: Oculus and Steam VR
-VR Hardware: Oculus Rift Touch c.3
+Game Engine: Unity version 2018.3.13f1  
+Required VR Software: Oculus and Steam VR  
+VR Hardware: Oculus Rift Touch c.3  
 
 ## Contributors
   * Bryan Dedeurwaerder
