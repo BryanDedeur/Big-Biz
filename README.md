@@ -1,6 +1,6 @@
 # BIG BIZ (Beta 1.1.2)
 ### A VR Business Management Simulation
-#### This project was for a Game Engine Architecture course final project under the supervision of Professor Sushil J. Louis at the University of Nevada Reno.
+#### This project was for a Game Engine Architecture course final project at the University of Nevada Reno.
 
 ![landing image](img/landing-image.PNG)
 
