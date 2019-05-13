@@ -46,7 +46,7 @@ public class EmployeeManager : MonoBehaviour
                 Image nameTag = FindNameTag(SelectedEmployee);
                 if (nameTag.color == new Color(1, 0.92f, 0.016f, .25f))
                 {
-                    nameTag.color = new Color(1, 1, 1, .50f); // white
+                    nameTag.color = new Color(1, 1, 1, .25f); // white
                 }
                 else
                 {
@@ -65,16 +65,26 @@ public class EmployeeManager : MonoBehaviour
         {
             foreach (Workstation workstation in workstationManager.WorkstationList)
             {
+                Image nameTag = FindNameTag(employee.gameObject);
                 if (workstation.Employee == null)
                 {
                     if ((workstation.gameObject.transform.position - employee.gameObject.transform.position).magnitude < 1.5f)
                     {
+                
                         workstation.Employee = employee.gameObject;
+                        employee.isWorking = true;
                     }
                 }
                 else if ((workstation.gameObject.transform.position - workstation.Employee.gameObject.transform.position).magnitude > 1.5f)
                 {
+                    nameTag.color = new Color(1, 1, 1, .25f); // white
+                    employee.isWorking = false;
                     workstation.Employee = null;
+                }
+                else if (workstation.Employee)
+                {
+                    nameTag = FindNameTag(workstation.Employee.gameObject);
+                    nameTag.color = new Color(0, 1, 0, .25f); // green
                 }
 
             }

@@ -737,6 +737,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83789cccffc70194bb1e1534365b4ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
+  levelSecondsUntilGameOver: 0000000000000000
+  levelBasePrice: 00000000d007000088130000
+  levelBankruptcy: 
+  timeRemaining: 0
 --- !u!82 &447449026
 AudioSource:
   m_ObjectHideFlags: 0

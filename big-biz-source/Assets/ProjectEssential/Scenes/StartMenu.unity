@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83789cccffc70194bb1e1534365b4ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
 --- !u!114 &73527060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,7 +939,6 @@ GameObject:
   - component: {fileID: 770800783}
   - component: {fileID: 770800782}
   - component: {fileID: 770800781}
-  - component: {fileID: 770800785}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -1029,18 +1029,6 @@ RectTransform:
   m_AnchoredPosition: {x: 960.00006, y: 540}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &770800785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770800780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83789cccffc70194bb1e1534365b4ca8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &783358340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1774,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 770800785}
+      - m_Target: {fileID: 1531654734}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -2366,6 +2354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7b90075240be442a1490953ffda2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCanvas: {fileID: 770800780}
 --- !u!114 &1531654735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2693,9 +2682,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 770800785}
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1531654734}
+        m_MethodName: NextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2703,18 +2692,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Level 1
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 770800785}
-        m_MethodName: CleanStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1836801625
@@ -2811,6 +2789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83789cccffc70194bb1e1534365b4ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
 --- !u!114 &1866052165
 MonoBehaviour:
   m_ObjectHideFlags: 0

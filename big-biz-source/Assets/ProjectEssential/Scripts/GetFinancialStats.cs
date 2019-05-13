@@ -10,7 +10,6 @@ public class GetFinancialStats : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
 	}
 
 	// Update is called once per frame
@@ -26,7 +25,19 @@ public class GetFinancialStats : MonoBehaviour
         }
         else if (WhichValue == "Bankruptcy")
         {
-            DisplayTo.text = "Bankruptcy at -$" + PlayerPrefs.GetInt("Bankruptcy", 0);
+            DisplayTo.text = "Bankruptcy at -$" + Mathf.Abs(PlayerPrefs.GetInt("Bankruptcy", 0));
         }
-	}
+        else if (WhichValue == "TimeRemaining")
+        {
+            DisplayTo.text = "Time remaining " + Mathf.RoundToInt(PlayerPrefs.GetFloat("TimeRemaining", 0)) + " seconds";
+        }
+        else if (WhichValue == "NextLevelPrice")
+        {
+            DisplayTo.text = "Go to Next Level $" + PlayerPrefs.GetInt("NextLevelPrice", 0);
+        }
+        else if (WhichValue == "WorkstationPrice")
+        {
+            DisplayTo.text = "Workstation: $" + Mathf.Abs(PlayerPrefs.GetInt("WorkstationPrice", 0));
+        }
+    }
 }

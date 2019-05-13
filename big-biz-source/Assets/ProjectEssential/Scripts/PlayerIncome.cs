@@ -11,17 +11,18 @@ public class PlayerIncome : MonoBehaviour
         InvokeRepeating("PayDay", paydayInterval, paydayInterval);
     }
 
-    public int CalculateWorkingIncome(Workstation ToBeCalculated)
+    public int CalculateWorkingIncome(Workstation workstation)
     {
-        Employee employee = ToBeCalculated.Employee.GetComponent(typeof(Employee)) as Employee;
         float money = 0;
+        Employee employee = workstation.Employee.GetComponent(typeof(Employee)) as Employee;
         if (employee != null)
         {
-            float intelligence = employee.intelligence;
-            float strength = employee.strength;
-            float social = employee.social;
-            float reliability = employee.reliability;
-            money = (intelligence * 0.4f + strength * 0.4f + social * 0.2f) * (reliability / 100);
+            money = workstation.profit * (
+                workstation.intelligence * (employee.intelligence) +
+                workstation.strength * (employee.strength) +
+                workstation.social * (employee.social)
+                );
+            //money = (intelligence * 0.4f + strength * 0.4f + social * 0.2f) * (reliability / 100);
         }
         return Mathf.RoundToInt(money);
     }
@@ -58,7 +59,7 @@ public class PlayerIncome : MonoBehaviour
             {
                 try
                 {
-                    totalIncome += employee.wage;
+                    totalIncome += Mathf.RoundToInt(employee.wage);
                 }
                 catch
                 {
