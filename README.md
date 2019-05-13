@@ -18,6 +18,8 @@ Requirements:
 #### Description
 In Big Biz, players take on the role of a business owner. Hire employees, create workstations, and manage who works where in order to rake in the cash! With business expansion and employee management systems, this game has all the qualities you would expect in a management sim.
 
+![controller input](img/game-play.gif)
+
 #### Information
 Genre: real time strategy (RTS) & management simulation  
 * Gameplay Elements:
@@ -36,7 +38,8 @@ Genre: real time strategy (RTS) & management simulation
    - UI elements are interactable as they exist in world space
    - Player teleports to avoid motion sickness
    - Physical objects are interactable through controller input
-   ![controller input](img/controller-input.gif)
+
+![controller input](img/controller-input.gif)
 
 4. No networking, single player
 5. Sounds (background + game sounds)
@@ -46,10 +49,6 @@ Genre: real time strategy (RTS) & management simulation
 6. Branding guidelines(not required)
      - We ensured to use consistent logos, fonts and color schemes through out the game.
 7. 3D Models were obtained from the Unity Asset Store
-
-#### Concept Drawing
-
-  ![concept drawing](img/game-concept.jpg)
 
 ## Development environment
 Game Engine: Unity version 2018.3.13f1  
