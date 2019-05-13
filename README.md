@@ -1,10 +1,10 @@
 # BIG BIZ (Beta 1.1.2)
-### A business management simulation game experienced through VR
+### A VR Business Management Simulation
 #### This project was for a Game Engine Architecture course final project under the supervision of Professor Sushil J. Louis at the University of Nevada Reno.
 
 ![landing image](img/landing-image.PNG)
 
-## Play now
+## Play now!
 Requirements:
 * Hardware - Oculus Rift Touch VR Hardware
 * OS - Windows 10 (or newer)
@@ -18,7 +18,7 @@ Requirements:
 #### Description
 In Big Biz, players take on the role of a business owner. Hire employees, create workstations, and manage who works where in order to rake in the cash! With business expansion and employee management systems, this game has all the qualities you would expect in a management sim.
 
-![controller input](img/game-play.gif)
+![game play video (coming soon)]()
 
 #### Information
 Genre: real time strategy (RTS) & management simulation  
